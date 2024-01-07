@@ -32,6 +32,7 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import de.rampro.activitydiary.R;
+import de.rampro.activitydiary.feedback;
 import de.rampro.activitydiary.ui.history.HistoryActivity;
 import de.rampro.activitydiary.ui.location.MapActivity;
 import de.rampro.activitydiary.ui.main.MainActivity;
@@ -118,6 +119,12 @@ public class BaseActivity extends AppCompatActivity {
                         Intent intentsettings = new Intent(BaseActivity.this, SettingsActivity.class);
                         startActivity(intentsettings);
                         break;
+
+                    case R.id.nav_feedback:
+                        Intent intentfeedback = new Intent(BaseActivity.this, feedback.class);
+                        startActivity(intentfeedback);
+                        break;
+
                     default:
                         Toast.makeText(BaseActivity.this, menuItem.getTitle() + " is not yet implemented :-(", Toast.LENGTH_LONG).show();
                         break;

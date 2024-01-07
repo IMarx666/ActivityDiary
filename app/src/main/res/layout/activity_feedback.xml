@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/translucentLightGreen"
+
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/translucentWhite"
+        android:padding="16dp"
+        android:elevation="4dp">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="对本应用的反馈与评价"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_gravity="center"
+            android:textSize="33dp"
+            />
+        <Button
+            android:id="@+id/btnViewFeedbackHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="查看历史反馈" />
+
+        <!-- 用户基本信息部分 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户基本信息"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="（方便后续回访和奖励）"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="15sp"
+            />
+        <!-- 用户姓名 -->
+        <EditText
+            android:id="@+id/userName"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:inputType="textPersonName"
+            android:autofillHints="name"
+            android:hint="姓名"
+            android:padding="12dp" />
+        <!-- 用户邮箱 -->
+        <EditText
+            android:id="@+id/userEmail"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+
+            android:autofillHints="emailAddress"
+            android:hint="电子邮件/电话"
+            android:padding="12dp" />
+
+        <!-- 应用使用情况部分 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="应用使用情况"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        <!-- 使用频率 -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="使用频率"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <Spinner
+            android:id="@+id/spinnerUseFrequency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/use_frequency_options" />
+
+        <!-- 设备类型 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="使用的设备类型"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <Spinner
+            android:id="@+id/UseType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/use_type" />
+
+
+
+        <!-- 功能使用和体验部分 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="功能使用和体验"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        <!-- 常用功能 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="常用功能"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <Spinner
+            android:id="@+id/UseFunction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/use_function" />
+        <!-- 功能易用性评分 -->
+        <RatingBar
+            android:id="@+id/featureEaseOfUse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="0"
+            android:stepSize="1.0" />
+        <!-- 体验问题描述 -->
+        <EditText
+            android:id="@+id/experienceProblems"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:inputType="textMultiLine"
+            android:hint="体验问题描述"
+            android:padding="12dp" />
+
+        <!-- 界面和设计部分 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="界面和设计"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        <!-- 设计美观性评分 -->
+        <RatingBar
+            android:id="@+id/designAesthetics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="0"
+            android:stepSize="1.0" />
+        <!-- 界面易用性评分 -->
+        <RatingBar
+            android:id="@+id/uiEaseOfUse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="0"
+            android:stepSize="1.0" />
+        <!-- 设计改进建议 -->
+        <EditText
+            android:id="@+id/designSuggestions"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:inputType="textMultiLine"
+            android:hint="设计改进建议"
+            android:padding="12dp" />
+
+        <!-- 性能和稳定性部分 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="性能和稳定性"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        <!-- 应用速度和响应时间评分 -->
+        <RatingBar
+            android:id="@+id/appSpeedAndResponsiveness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="0"
+            android:stepSize="1.0" />
+        <!-- 崩溃或错误问题描述 -->
+        <EditText
+            android:id="@+id/crashOrErrorDescription"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:inputType="textMultiLine"
+            android:hint="崩溃或错误问题描述"
+            android:padding="12dp" />
+        <!-- 功能或页面加载时间 -->
+        <EditText
+            android:id="@+id/loadingTime"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:inputType="text"
+            android:hint="功能或页面加载时间"
+            android:padding="12dp" />
+
+        <!-- 整体满意度部分 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="整体满意度"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        <!-- 总体满意度评分 -->
+        <RatingBar
+            android:id="@+id/overallSatisfaction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="0"
+            android:stepSize="1.0" />
+        <!-- 最喜欢的功能或特点 -->
+        <EditText
+            android:id="@+id/favoriteFeatures"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:inputType="text"
+            android:hint="最喜欢的功能或特点"
+            android:padding="12dp" />
+        <!-- 不满意的方面 -->
+        <EditText
+            android:id="@+id/dissatisfactions"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:inputType="text"
+            android:hint="不满意的方面"
+            android:padding="12dp" />
+
+        <!-- 改进建议和功能需求部分 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="改进建议和功能需求"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        <!-- 用户对新功能的需求或建议 -->
+        <EditText
+            android:id="@+id/featureRequests"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:inputType="textMultiLine"
+            android:hint="用户对新功能的需求或建议"
+            android:padding="12dp" />
+        <!-- 对现有功能的改进建议 -->
+        <EditText
+            android:id="@+id/existingFeatureImprovements"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:inputType="textMultiLine"
+            android:hint="对现有功能的改进建议"
+            android:padding="12dp" />
+        <!-- 其他任何希望改进的方面 -->
+        <EditText
+            android:id="@+id/otherImprovements"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:inputType="textMultiLine"
+            android:hint="其他任何希望改进的方面"
+            android:padding="12dp" />
+
+        <!-- 其他反馈部分 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="其他反馈"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        <!-- 开放性问题，允许用户自由表达其他想法或建议 -->
+        <EditText
+            android:id="@+id/otherFeedback"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:inputType="textMultiLine"
+            android:hint="其他想法或建议"
+            android:padding="12dp" />
+
+        <!-- 隐私和数据使用声明部分 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="隐私和数据使用声明"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        <TextView
+            android:id="@+id/privacyPolicy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="查看完整声明"
+            android:textColor="@color/link_color"
+            android:paddingTop="24dp"
+            android:clickable="true"
+            android:autoLink="web" />
+
+
+        <!-- 提交按钮 -->
+        <Button
+            android:id="@+id/submitFeedbackButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="提交反馈"
+            android:layout_marginTop="24dp"
+            android:padding="12dp" />
+
+    </LinearLayout>
+</ScrollView>

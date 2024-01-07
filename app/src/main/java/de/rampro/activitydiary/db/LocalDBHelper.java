@@ -35,6 +35,7 @@ public class LocalDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         createTablesForVersion(db, CURRENT_VERSION);
+        createFeedbackTable(db);
 
         /* now fill some sample data */
         db.execSQL("INSERT INTO " +
@@ -84,7 +85,7 @@ public class LocalDBHelper extends SQLiteOpenHelper {
                 " ('Sleeping', '" + Color.parseColor("#303f9f") + "');");
     }
 
-    public static final int CURRENT_VERSION = 5;
+    public static final int CURRENT_VERSION = 6;
 /*
     For debugging sometimes it is handy to drop a table again. This can easily be achieved in onDowngrade,
     after CURRENT_VERSION is decremented again
@@ -118,18 +119,27 @@ public class LocalDBHelper extends SQLiteOpenHelper {
         if (oldVersion < 3) {
             /* upgrade from 2 to 3 */
             createDiaryImageTable(db);
+
         }
         if (oldVersion < 4) {
             /* upgrade from 3 to 4 */
             createDiaryLocationTable(db);
+
         }
 
         if (oldVersion < 5) {
             /* upgrade from 4 to 5 */
             createRecentSuggestionsTable(db);
+
         }
 
-        if (newVersion > 5) {
+        if (oldVersion < 6) {
+            /* upgrade from 5 to 6 */
+            createFeedbackTable(db);
+
+        }
+
+        if (newVersion > 6) {
             throw new RuntimeException("Database upgrade to version " + newVersion + " nyi.");
         }
     }
@@ -199,6 +209,7 @@ public class LocalDBHelper extends SQLiteOpenHelper {
 
         if (version >= 3) {
             createDiaryImageTable(db);
+
         }
 
         if (version >= 4) {
@@ -209,5 +220,38 @@ public class LocalDBHelper extends SQLiteOpenHelper {
             createRecentSuggestionsTable(db);
         }
 
+        if (version >= 6) {
+            createFeedbackTable(db);
+        }
+
     }
+
+
+    private void createFeedbackTable(SQLiteDatabase db) {
+        db.execSQL("CREATE TABLE IF NOT EXISTS feedback (" +
+                "_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "userName TEXT, " +
+                "userEmail TEXT, " +
+                "useFrequency TEXT, " +
+                "deviceType TEXT, " +
+                "commonFunction TEXT, " +
+                "featureEaseOfUse INTEGER, " +
+                "experienceProblems TEXT, " +
+                "designAesthetics INTEGER, " +
+                "uiEaseOfUse INTEGER, " +
+                "designSuggestions TEXT, " +
+                "appSpeedAndResponsiveness INTEGER, " +
+                "crashOrErrorDescription TEXT, " +
+                "loadingTime TEXT, " +
+                "overallSatisfaction INTEGER, " +
+                "favoriteFeatures TEXT, " +
+                "dissatisfactions TEXT, " +
+                "featureRequests TEXT, " +
+                "existingFeatureImprovements TEXT, " +
+                "otherImprovements TEXT, " +
+                "otherFeedback TEXT, " +
+                "timestamp DATETIME DEFAULT CURRENT_TIMESTAMP" +
+                ");");
+    }
+
 }
